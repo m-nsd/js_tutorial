@@ -4,17 +4,17 @@ let Phrase = require("m-nsd-palindrome");
 function palindromeTester() {
   let string = prompt("パリンドロームをテストしたい文字列を入力してください:");
   let phrase = new Phrase(string);
-
+  let palindromeResult = document.querySelector("#palindromeResult");
   if (phrase.palindrome()) {
-    alert(`"${phrase.content}"はパリンドロームです！`);
+    palindromeResult.innerHTML = `"<strong>${phrase.content}</strong>"はパリンドロームです！`;
   } else {
-    alert(`"${phrase.content}"はパリンドロームではありません`)
+    palindromeResult.innerHTML = `"<strong>${phrase.content}</strong>"はパリンドロームではありません`;
   }
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-  let form = document.querySelector("#palindromeTester");
-  form.addEventListener("submit", function() {
+  let button = document.querySelector("#palindromeTester");
+  button.addEventListener("click", function() {
     palindromeTester();
   });
 });
